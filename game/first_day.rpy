@@ -16,7 +16,7 @@ label first_day:
 
     #Introduction to all the characters
 
-    show classroom2 with dis
+    show classroom with dis
     mc"Uh... hello? Is this board game club?"
 
     show i with dis:
@@ -50,9 +50,11 @@ label first_day:
     Elizabeth"
 
     #Transition to free_time
-
-    $ tm = Time().addTime(10)
+    $ tm = 17
     show tidyroom with dis
+    hide i
+    hide e
+    hide r
     mc"(Alright I'm back home, looks like I really have to practice playing Is-She-Kay Life)"
     mc"(But I have to make sure my GPA doesn't drop... )"
     mc"(I've got classes at 7:00am tomorrow)"

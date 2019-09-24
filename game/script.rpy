@@ -7,30 +7,19 @@ define i = Character("Isabelle")
 define r = Character("Rika", color="#ff8000")
 define e = Character("Elizabeth", color="#ff8aef")
 define mc = Character("You", color="#007bff")
+define t = Character("Teacher")
 
 # initializations (class, variables, etc.)
 init python:
     # player 'currencies'
     intelligence = 0
     isk = 0
-
     # player status
     stamina = 40
     mental_health = 40
-
-    # Time object for clock
-    class Time(object):
-        def __init__(self, t):
-            self.t = t
-
-        def addTime(self, n):
-            self.t = self.t+n
-            #if self.t > 24:
-                #self.t = self.t - 24
-            return self.t
-
-        def getTime(self):
-            return str(self.t) + ":00"
+    # tm is variable for storing time, initialized here
+    tm = 7
+    day = 1
 
 # The game starts here.
 
@@ -92,8 +81,6 @@ label start:
     #
     # scene tidyroom
 
-    $ t = Time()
-    $ tm = t.initTime()
     screen clock:
         modal False
         frame:
@@ -104,14 +91,24 @@ label start:
             xsize 150
             ysize 50
 
-            text "[tm]" xalign 0.5 yalign 0.5
+
+            text "[tm]"+":00" xalign 0.5 yalign 0.5
+
+    screen day:
+        modal False
+        frame:
+            style "screen_background"
+            xalign 0.5
+            yalign 0.06
+
+            text "Day [day]" xalign 0.75 yalign 0.0
 
     screen currency:
         modal False
         frame:
             style "screen_background"
             xalign 0.5
-            yalign 0.06
+            yalign 0.12 #previous value = 0.06
             vbox:
                 text "Intelligence Pts." xalign 0.5 size 25
                 text "[intelligence]" xalign 0.5 size 20
@@ -126,7 +123,6 @@ label start:
     call expression fd from call1
 
     show screen currency
-    #$ tm = Time().addTime(10)
     show screen clock
 
     $ ft = "free_time"
