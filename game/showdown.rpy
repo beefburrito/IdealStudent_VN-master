@@ -1,3 +1,5 @@
+$ finalshowdown = 0
+
 label showdown:
     jump showdown_isabelle
 

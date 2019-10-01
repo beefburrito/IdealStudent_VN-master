@@ -20,6 +20,7 @@ init python:
     # tm is variable for storing time, initialized here
     tm = 7
     day = 1
+    normal_days_count = 0
 
 # The game starts here.
 

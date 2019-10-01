@@ -51,6 +51,7 @@ label first_day:
 
     #Transition to free_time
     $ tm = 17
+
     show tidyroom with dis
     hide i
     hide e

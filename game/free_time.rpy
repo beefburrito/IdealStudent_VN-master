@@ -164,14 +164,23 @@ label free_time:
                 button:
                     # go to university
                     text "Go to University" style "button_text" size 25
-                    if tm == 7 and mental_health == 50 and stamina == 50:
-
-                        if chance > 3 and day != 3:
-                            action [Jump("normal_day"), Return(True)]
-                        elif chance <= 3 and day != 3:
-                            action [Jump("exams"), Return(True)]
-                        else:
+                    if tm == 7 and mental_health >= 50 and stamina >= 50:
+                        if chance > 3: #and day != 3:
+                            action [Jump("normal_day"), Return(True),
+                                    SetVariable("normal_days_count", normal_days_count + 1)
+                                    ]
+                        elif chance <= 3: #and day != 3:
+                            action [Jump("exams"), Return(True)
+                            SetVariable("normal_days_count", normal_days_count + 1)]
+                        elif day % 10 == 0:
                             action [Jump("showdown"),Return(True)]
+                    elif (tm >= 7 and tm < 17) and (mental_health < 50 or stamina < 50):
+                        if chance > 3: #and day != 3:
+                            action [Jump("missed_normal_day"), Return(True)]
+                        elif chance <= 3: #and day != 3:
+                            action [Jump("missed_exam_day"), Return(True)]
+                        elif day % 10 == 0:
+                            action [Jump("missed_showdown"), Return(True)]
 
 
             # Debug button Example

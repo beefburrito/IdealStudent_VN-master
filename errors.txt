@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/showdown.rpy", line 15: expected 'label_name' not found.
-    jump 
+File "game/free_time.rpy", line 168: u'hide' is not a keyword argument or valid child for the button statement.
+    hide classroom2
         ^
 
 Ren'Py Version: Ren'Py 7.3.2.320
-Wed Sep 11 09:28:01 2019
+Mon Sep 30 09:33:43 2019
